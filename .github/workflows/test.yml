@@ -29,11 +29,15 @@ jobs:
       - name: Log Branch Name
         run: echo "Running install from ${{ env.GITHUB_HEAD_REF_SLUG }}"
 
+      - name: Clone kit
+        run: |
+          git clone https://github.com/johnlindquist/kit.git ~/.kit
+          ls ~/.kit
+
       - name: Checkout to branch - ${{ env.GITHUB_HEAD_REF_SLUG }}
-      - uses: actions/checkout@v2
-        with:
-          path: '/.kit'
-        run: echo "checked it out"
+        run: |
+          cd ~/.kit
+          git checkout ${{ env.GITHUB_HEAD_REF_SLUG }}
 
       - name: Install latest node
         run: >
