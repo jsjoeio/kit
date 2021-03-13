@@ -43,35 +43,35 @@ jobs:
 
       - name: npm install
         run: |
-          cd ~/.kit
-          ~/.kit/node/bin/npm install
+          cd ./.kit
+          ./.kit/node/bin/npm install
 
       - name: cat kit.sh
-        run: cat ~/.kit/script
+        run: cat ./.kit/script
 
       - name: setup .kenv dir
         run: |
-          cd ~/.kit
-          KENV=~/.kenv bash ./script ./setup/setup.js
+          cd ./.kit
+          KENV=./.kenv bash ./script ./setup/setup.js
 
       - name: list .kenv dir
         run: >
-          ls ~/.kenv
+          ls ./.kenv
 
       - name: View .profile
         run: >
-          cat ~/.profile
+          cat ./.profile
 
       - name: View bin
         run: >
-          cat ~/.kenv/bin/new
+          cat ./.kenv/bin/new
 
       - name: View .env
         run: >
-          cat ~/.kenv/.env
+          cat ./.kenv/.env
 
       - name: Adding sk to Path
-        run: echo "~/.kenv/bin" >> $GITHUB_PATH
+        run: echo "./.kenv/bin" >> $GITHUB_PATH
 
       - name: Create a Test Script
         run: >
@@ -83,5 +83,5 @@ jobs:
 
       - name: Test new-and-rm
         run: |
-          cd ~/.kenv
+          cd ./.kenv
           KENV=. KIT_TEMPLATE=default kit/script kit/test/new-and-rm.js
