@@ -1,0 +1,13 @@
+name: Test Install, New Script, Run Script
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v2
+        with:
+          path: ~/.joe
+
