@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ~/.kit
+        run: ls ~/.kit
 
       - name: Install latest node
         run: >
