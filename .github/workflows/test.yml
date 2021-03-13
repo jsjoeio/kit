@@ -32,14 +32,14 @@ jobs:
       - name: Clone kit
         uses: actions/checkout@v2
         with:
-          path: .kit
+          path: ./.kit
 
       - name: Show files
-        run: ls ~/.kit
+        run: ls  && ls ./.kit
 
       - name: Install latest node
         run: >
-          bash ~/.kit/setup/install-node.sh --prefix ~/.kit/node
+          bash ./.kit/setup/install-node.sh --prefix ./.kit/node
 
       - name: npm install
         run: |
